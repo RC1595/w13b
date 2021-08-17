@@ -1,18 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button id="toggle" @click="activate">Click Here</button>
+    <TweetCon></TweetCon> 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TweetCon from './components/tweetCon.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TweetCon,
+    },
+
+    methods : {
+      activate: function() {
+      console.log("button clicked");
+      this.$root.$emit('isActive');
+    }
   }
+
 }
 </script>
 
@@ -24,5 +32,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: lightblue;
 }
 </style>
